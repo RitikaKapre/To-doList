@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO-LIST</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function myFunction() {
+            var a = document.getElementById("delete").parentNode.remove();
+        }
+    </script>
+
+    <style>
+        body {
+            /* background: rgb(132, 94, 194);*/
+            background: linear-gradient(90deg, rgb(186, 212, 196) 0%, rgb(199, 253, 255) 25%, rgb(200, 238, 215) 46%, rgb(194, 211, 238) 66%, rgb(228, 246, 189) 86%, rgb(197, 239, 196) 100%); 
+            /* background-image: url('https://www.gifcen.com/wp-content/uploads/2021/08/flowers-png-gif-7.gif'); */
+            text-align: center;
+        }
+
+        /* heading-1   */
+        h1 {
+            color: rgb(113, 210, 131);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 3.3rem;
+            text-align: center;
+            /* text-decoration: underline 2px; */
+            text-shadow: 2px 2px rgb(240, 148, 223);
+        }
+
+        /* heading-2 */
+        h2 {
+            color: aliceblue;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 1rem;
+            margin-top: -2rem;
+        }
+
+        .delt {
+            height: 3rem;
+            width: 5rem;
+            align-items: center;
+            border: 2px solid palevioletred;
+            /* border-radius: %; */
+            /* margin:auto; */
+            margin-left: 1rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            /* background-color:rgba(246,161,119,1); */
+            background-color: white;
+            color: rgb(239, 7, 150);
+            border: 2px solid rgb(239, 7, 150);
+            padding: 2px 2px 2px 2px;
+            text-align: center;
+        }
+
+         li {
+            list-style: none;
+            text-align: left;
+            border-bottom: 1px solid rgb(190, 231, 232);
+            font-size: 1rem;
+            margin-top: 0.6rem;
+            padding-bottom: 0.3rem;
+            font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            /* color: #d17979; */
+            opacity: 100%;
+            /* padding-left: 1rem; */
+        }
+        input {
+            height: 120%;
+            width: 40%;
+            outline: none;
+            /* padding: 0 50px 0 45px; */
+            font-size: 20px;
+            color: #7de393;
+            border: 2px solid #7de393;
+            border-radius: 5px;
+            transition: all 0.1s ease;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+       
+        .div1{
+            width: 1300px;
+            height: 700px;
+            /* background-image: url('https://imgs.search.brave.com/u8PUcsCAlN4PGsMXK2IXZafFYA2Kls7RhiQxe1VFvhM/rs:fit:800:800:1/g:ce/aHR0cHM6Ly9tZWRp/YTQuZ2lwaHkuY29t/L21lZGlhL2w0cFRp/aTA3R3lwaTNHRlB5/L3NvdXJjZS5naWY.gif'); */
+            background-image: url('https://i.pinimg.com/originals/84/00/8d/84008d2aadce7e3b78e59588d57f35ff.jpg');
+            margin-left: 5%;
+            background-repeat: no-repeat; 
+             background-size: cover; 
+        }
+            
+            
+    </style>
+</head>
+
+<body>
+    <div class="date">
+        <h1>
+            <%=day%>
+        </h1>
+    </div>
+    <div class="div1" img src="/../public/img.jpg">
+        <div >
+            <h1>Goal tracker </h1>
+            <form method="post" action="/add">
+                <!-- <input type="number" name ="nn"  min="1" max="100" placeholder="0" required/ style="width: 50px;"> -->
+                <input type="text" name="notes" class="note" placeholder="Add a Task" required>
+
+                <input type="submit" name="add" value="Add" class="Add delt">
+            </form>
+        </div>
+
+        <div>
+            <div id="task">
+                <h1>Update tasks</h1>
+                <form method="post" action="/delete">
+                    <div class="del">
+                        <input type="text" name="notes" class="noteUpdate" placeholder="Update Task">
+                        <ul>
+
+                            <% name.forEach(function(i){ %>
+                                <li class="list"><input type="checkbox" name="checkbox" value="<%=i.id%>"
+                                        class="hello"><label for="<%=i.id%>">
+                                        <%=i.task%>
+                                    </label></li>
+                                <% }) %>
+
+                        </ul>
+                    </div>
+                    <button class="delt">Update</button>
+                    <input type="submit" value="Delete" class=" delt1 delt" >
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
